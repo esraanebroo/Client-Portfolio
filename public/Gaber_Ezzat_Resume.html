@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume - Gaber Ezzat | Full Stack .NET Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --bg-light: #f8fafc;
+      --border-color: #e2e8f0;
+      --accent: #3b82f6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-light);
+      line-height: 1.5;
+      padding: 3rem 1rem;
+    }
+
+    .resume-container {
+      max-width: 850px;
+      background: #ffffff;
+      margin: 0 auto;
+      padding: 3.5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border-color);
+      position: relative;
+    }
+
+    /* Print / Action Buttons */
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      max-width: 850px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      background-color: #ffffff;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-light);
+    }
+
+    /* Header */
+    header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .name-title h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+      line-height: 1.1;
+    }
+
+    .name-title h2 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--primary);
+      margin-top: 0.25rem;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    @media (max-width: 600px) {
+      .contact-info {
+        text-align: left;
+      }
+    }
+
+    .contact-info a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-info a:hover {
+      color: var(--primary);
+    }
+
+    /* Summary */
+    .summary-section {
+      margin-bottom: 2rem;
+    }
+
+    p.summary-text {
+      font-size: 0.95rem;
+      color: #334155;
+      text-align: justify;
+    }
+
+    /* Sections Layout */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #0f172a;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background-color: var(--border-color);
+      margin-left: 0.5rem;
+    }
+
+    .section {
+      margin-bottom: 2.25rem;
+    }
+
+    /* Experience & Projects Items */
+    .item {
+      margin-bottom: 1.5rem;
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.3rem;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+
+    .item-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .item-subtitle {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .item-date {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .item-details {
+      list-style-type: square;
+      padding-left: 1.25rem;
+      font-size: 0.88rem;
+      color: #334155;
+    }
+
+    .item-details li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* Skills Grid */
+    .skills-category {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .skills-category strong {
+      font-size: 0.88rem;
+      color: #0f172a;
+      min-width: 120px;
+    }
+
+    .skill-tag {
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      color: #334155;
+      font-weight: 500;
+    }
+
+    /* Certifications Grid */
+    .certs-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 0.75rem;
+      list-style: none;
+    }
+
+    @media (max-width: 500px) {
+      .certs-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .certs-list li {
+      font-size: 0.88rem;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .certs-list li::before {
+      content: "✓";
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    /* Languages */
+    .languages-box {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.9rem;
+    }
+
+    /* Print Stylesheet */
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+
+      .resume-container {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .actions {
+        display: none;
+      }
+
+      .btn {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="actions">
+    <button onclick="window.print()" class="btn btn-primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:0.25rem"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      Print / Save PDF
+    </button>
+    <a href="/" class="btn btn-secondary">
+      Back to Portfolio
+    </a>
+  </div>
+
+  <div class="resume-container">
+    
+    <header>
+      <div class="header-top">
+        <div class="name-title">
+          <h1>Gaber Ezzat Gaber</h1>
+          <h2>Full Stack Developer | .NET Developer</h2>
+        </div>
+        <div class="contact-info">
+          <div>📍 Cairo, Egypt</div>
+          <div>📞 <a href="tel:+201113749645">+20 111 374 9645</a></div>
+          <div>✉️ <a href="mailto:gaberezzat.1001@gmail.com">gaberezzat.1001@gmail.com</a></div>
+          <div>🔗 <a href="https://linkedin.com/in/gaberezzat11" target="_blank">linkedin.com/in/gaberezzat11</a></div>
+          <div>💻 <a href="https://github.com/Gaber11" target="_blank">github.com/Gaber11</a></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="summary-section">
+      <p class="summary-text">
+        Result-driven Full Stack .NET Developer specialized in building scalable, secure, and modern web applications. Expert in ASP.NET Core, Entity Framework Core, RESTful APIs, Clean Architecture, and Domain-Driven Design (DDD). Passionate about writing clean, maintainable, and recruiter-friendly code with hands-on expertise in frontend development using React and Angular.
+      </p>
+    </div>
+
+    <!-- Section: Technical Skills -->
+    <div class="section">
+      <h3 class="section-title">Technical Skills</h3>
+      
+      <div class="skills-category">
+        <strong>Backend:</strong>
+        <span class="skill-tag">C#</span>
+        <span class="skill-tag">.NET Core</span>
+        <span class="skill-tag">ASP.NET Core</span>
+        <span class="skill-tag">Entity Framework Core</span>
+        <span class="skill-tag">LINQ</span>
+        <span class="skill-tag">SignalR</span>
+        <span class="skill-tag">RESTful APIs</span>
+        <span class="skill-tag">MVC</span>
+      </div>
+
+      <div class="skills-category">
+        <strong>Frontend:</strong>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Angular</span>
+        <span class="skill-tag">JavaScript (ES6+)</span>
+        <span class="skill-tag">HTML5</span>
+        <span class="skill-tag">CSS3</span>
+        <span class="skill-tag">Bootstrap</span>
+      </div>
+
+      <div class="skills-category">
+        <strong>Database / Caching:</strong>
+        <span class="skill-tag">SQL Server</span>
+        <span class="skill-tag">Redis Caching</span>
+      </div>
+
+      <div class="skills-category">
+        <strong>Architecture:</strong>
+        <span class="skill-tag">Clean Architecture</span>
+        <span class="skill-tag">N-Tier Architecture</span>
+        <span class="skill-tag">SOLID Principles</span>
+        <span class="skill-tag">Repository Pattern</span>
+        <span class="skill-tag">Unit of Work Pattern</span>
+        <span class="skill-tag">Design Patterns</span>
+      </div>
+
+      <div class="skills-category">
+        <strong>Tools:</strong>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">GitHub</span>
+        <span class="skill-tag">Swagger</span>
+        <span class="skill-tag">Postman</span>
+        <span class="skill-tag">VS Code</span>
+        <span class="skill-tag">ChatGPT</span>
+        <span class="skill-tag">Claude</span>
+        <span class="skill-tag">Notion</span>
+      </div>
+    </div>
+
+    <!-- Section: Projects -->
+    <div class="section">
+      <h3 class="section-title">Key Projects</h3>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Company Management System</span>
+          <span class="item-date">2024</span>
+        </div>
+        <div class="item-subtitle">ASP.NET Core | C# | SQL Server | AJAX</div>
+        <ul class="item-details">
+          <li>Designed and built secure authentication and user management workflows.</li>
+          <li>Implemented complete CRUD operations with optimized database structures.</li>
+          <li>Integrated real-time database search functions using AJAX.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">E-commerce API System</span>
+          <span class="item-date">2024</span>
+        </div>
+        <div class="item-subtitle">ASP.NET Core | Entity Framework Core | Redis | Payment Gateway</div>
+        <ul class="item-details">
+          <li>Architected complete product catalogs, shopping basket management, and order systems.</li>
+          <li>Integrated secure payment processing for order checkout flows.</li>
+          <li>Configured Redis Caching to boost lookup speeds and reduce database overhead.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Warehouse Management System</span>
+          <span class="item-date">2024</span>
+        </div>
+        <div class="item-subtitle">ASP.NET Core | SQL Server | RBAC</div>
+        <ul class="item-details">
+          <li>Engineered inventory management modules with automated stock level tracking.</li>
+          <li>Implemented Role-Based Access Control (RBAC) to ensure correct user authorization levels.</li>
+          <li>Built an interactive dashboard for analytical warehouse stats.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Secure Auth API</span>
+          <span class="item-date">2024</span>
+        </div>
+        <div class="item-subtitle">ASP.NET Core Web API | JWT Authentication</div>
+        <ul class="item-details">
+          <li>Built a modular token-based authentication service using JWT.</li>
+          <li>Managed role-based authorization rules to secure sensitive endpoints.</li>
+          <li>Integrated Swagger Open API for automatic endpoint documentation and sandbox testing.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Dentist Clinic Website</span>
+          <span class="item-date">2023</span>
+        </div>
+        <div class="item-subtitle">HTML5 | CSS3 | JavaScript | AI Chat Assistant</div>
+        <ul class="item-details">
+          <li>Developed a web portal enabling patients to browse services and book appointments.</li>
+          <li>Embedded an AI chat assistant for direct patient support.</li>
+          <li>Designed a fully responsive, RTL-supporting UI in Arabic.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section: Education -->
+    <div class="section">
+      <h3 class="section-title">Education</h3>
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">Management Technology and Information Systems (MTIS)</span>
+          <span class="item-date">Graduation: 2024</span>
+        </div>
+        <div class="item-subtitle">Port Said, Egypt</div>
+        <ul class="item-details">
+          <li><strong>GPA:</strong> 3.5 / 4.0 (Grade: B+)</li>
+          <li><strong>Graduation Project:</strong> Backend (.NET) Graduation Project — <strong>Project Grade: 97/100</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section: Certifications -->
+    <div class="section">
+      <h3 class="section-title">Certifications</h3>
+      <ul class="certs-list">
+        <li>Backend (.NET Core) Diploma – Route IT Training Center</li>
+        <li>SQL Basic – HackerRank</li>
+        <li>SQL Intermediate – HackerRank</li>
+        <li>SoloLearn SQL Certificate</li>
+        <li>LeetCode SQL 50</li>
+        <li>ICDL (International Computer Driving License)</li>
+        <li>Principles of Microsoft Office Specialist (MOS)</li>
+        <li>Soft Skills & Human Development Training</li>
+        <li>English Language Level 3 Certificate</li>
+      </ul>
+    </div>
+
+    <!-- Section: Languages -->
+    <div class="section">
+      <h3 class="section-title">Languages</h3>
+      <div class="languages-box">
+        <div><strong>Arabic:</strong> Native</div>
+        <div><strong>English:</strong> Very Good</div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

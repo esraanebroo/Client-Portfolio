@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing Plans | Gaber Ezzat — Modern Web Solutions</title>
+  <meta name="description" content="Transparent project pricing for web development, API, and desktop applications. Four flexible plans tailored to your needs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <style>
+    /* ========== RESET & BASE — BLUE PROFESSIONAL THEME ========== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:       #2563eb;     /* vibrant modern blue */
+      --primary-h:     #1d4ed8;
+      --primary-s:     #3b82f6;
+      --primary-glow:  #3b82f6;
+      --bg:            #030712;     /* deep rich dark */
+      --bg2:           #0f172a;
+      --fg:            #f1f5f9;
+      --fg2:           #cbd5e6;
+      --border:        rgba(37, 99, 235, 0.25);
+      --glass:         rgba(15, 23, 42, 0.72);
+      --radius:        1.5rem;
+      --card-shadow:   0 20px 35px -12px rgba(0,0,0,0.4);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--bg);
+      color: var(--fg);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ========== NOISE OVERLAY ========== */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.2;
+    }
+
+    /* ========== TOP GLOW BLOB (blue tone) ========== */
+    .glow-blob {
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1000px;
+      height: 550px;
+      background: radial-gradient(ellipse at center, rgba(37,99,235,0.2) 0%, rgba(37,99,235,0) 70%);
+      filter: blur(70px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ========== NAVBAR ========== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(3,7,18,0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      width: 2.6rem;
+      height: 2.6rem;
+      border-radius: 0.75rem;
+      background: linear-gradient(135deg, #1e40af, #2563eb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: #fff;
+      letter-spacing: 0.02em;
+      box-shadow: 0 0 12px rgba(37,99,235,0.4);
+    }
+
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.5rem 1.1rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--fg2);
+      transition: all 0.25s ease;
+      background: var(--glass);
+    }
+
+    .nav-back:hover {
+      border-color: var(--primary);
+      color: var(--primary-s);
+      transform: translateX(-3px);
+    }
+
+    /* ========== MAIN WRAPPER ========== */
+    main {
+      position: relative;
+      z-index: 1;
+      padding: 0 1rem 6rem;
+    }
+
+    /* ========== HERO HEADER ========== */
+    .page-hero {
+      text-align: center;
+      padding: 5rem 1rem 3rem;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .page-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(59,130,246,0.45);
+      background: rgba(37,99,235,0.12);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #60a5fa;
+      margin-bottom: 1.6rem;
+    }
+
+    .page-title {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+      background: linear-gradient(135deg, #ffffff 0%, #93c5fd 40%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-subtitle {
+      font-size: 1.05rem;
+      color: var(--fg2);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ========== INFO BANNER ========== */
+    .info-banner {
+      max-width: 720px;
+      margin: 2.5rem auto 0;
+      padding: 1rem 1.4rem;
+      border-radius: 0.85rem;
+      background: rgba(37,99,235,0.07);
+      border: 1px solid rgba(59,130,246,0.28);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      color: var(--fg2);
+      line-height: 1.6;
+    }
+
+    .info-banner svg { flex-shrink: 0; margin-top: 2px; stroke: #3b82f6; }
+
+    /* ========== PRICING GRID — 4 cards ========== */
+    .pricing-section {
+      max-width: 1280px;
+      margin: 3rem auto 0;
+      padding: 0 0.75rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      align-items: stretch;
+    }
+
+    @media (min-width: 1100px) {
+      .pricing-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* ========== PRICING CARD — BLUE HOVER GRADIENT ANIMATION ========== */
+    .pricing-card {
+      position: relative;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1), box-shadow 0.3s ease, border-color 0.2s;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.65s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+      box-shadow: var(--card-shadow);
+    }
+
+    .pricing-card:nth-child(1) { animation-delay: 0.05s; }
+    .pricing-card:nth-child(2) { animation-delay: 0.15s; }
+    .pricing-card:nth-child(3) { animation-delay: 0.25s; }
+    .pricing-card:nth-child(4) { animation-delay: 0.35s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 🔥 Blue gradient animated border on hover */
+    .pricing-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      padding: 2px;
+      background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6, #60a5fa);
+      background-size: 200% 200%;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+
+    .pricing-card:hover::after {
+      opacity: 1;
+      animation: borderGlow 1.2s ease infinite alternate;
+    }
+
+    @keyframes borderGlow {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 100% 100%; }
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(59,130,246,0.5);
+      box-shadow: 0 24px 45px -12px rgba(37,99,235,0.45);
+      background: radial-gradient(circle at top left, rgba(37,99,235,0.15), rgba(15,23,42,0.9));
+    }
+
+    /* inner top subtle line */
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      width: 80%;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, #3b82f6, #60a5fa, transparent);
+      border-radius: 9999px;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .pricing-card:hover::before { opacity: 0.7; }
+
+    /* Badge row */
+    .card-badges {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.1rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.22rem 0.7rem;
+      border-radius: 9999px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .badge-popular {
+      background: linear-gradient(135deg, #1e40af, #2563eb);
+      color: #fff;
+      box-shadow: 0 2px 10px rgba(37,99,235,0.5);
+    }
+
+    .badge-starter, .badge-standard, .badge-advanced, .badge-custom {
+      background: rgba(59,130,246,0.12);
+      color: #93c5fd;
+      border: 1px solid rgba(59,130,246,0.3);
+    }
+
+    .card-icon {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      border: 1px solid rgba(59,130,246,0.4);
+      background: rgba(37,99,235,0.12);
+    }
+
+    .card-plan {
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .card-price {
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+      line-height: 1;
+      margin-top: 0.25rem;
+    }
+
+    .price-currency {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--fg2);
+    }
+
+    .price-range {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #e2e8f0;
+    }
+
+    .custom-price {
+      font-size: 1.9rem;
+      font-weight: 900;
+      color: #60a5fa;
+    }
+
+    .price-unit {
+      font-size: 0.85rem;
+      color: var(--fg2);
+      margin-left: 0.1rem;
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--fg2);
+      line-height: 1.65;
+      border-left: 2px solid #2563eb40;
+      padding-left: 0.7rem;
+    }
+
+    .card-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+      margin: 0.25rem 0 0.5rem;
+    }
+
+    .card-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      flex: 1;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.86rem;
+      color: var(--fg2);
+      line-height: 1.4;
+    }
+
+    .feature-item.included { color: var(--fg); }
+    .feature-item.excluded { opacity: 0.5; }
+
+    .check-icon {
+      flex-shrink: 0;
+      width: 1.1rem;
+      height: 1.1rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6rem;
+      margin-top: 1px;
+    }
+
+    .check-icon.yes {
+      background: rgba(59,130,246,0.2);
+      color: #3b82f6;
+      border: 1px solid rgba(59,130,246,0.5);
+    }
+
+    .check-icon.no {
+      background: rgba(255,255,255,0.05);
+      color: #94a3b8;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .card-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-top: 0.8rem;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1.5px solid rgba(59,130,246,0.4);
+      color: var(--fg);
+    }
+
+    .btn-ghost:hover {
+      border-color: #3b82f6;
+      background: rgba(59,130,246,0.15);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1e40af, #2563eb);
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(37,99,235,0.35);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+      box-shadow: 0 10px 24px rgba(37,99,235,0.6);
+      transform: translateY(-3px);
+    }
+
+    /* custom badge for custom plan */
+    .custom-highlight {
+      border-top: 2px solid #3b82f6;
+    }
+
+    /* ========== BOTTOM CTA (blue style) ========== */
+    .bottom-cta {
+      max-width: 720px;
+      margin: 5rem auto 0;
+      text-align: center;
+      padding: 3rem 2rem;
+      border-radius: 1.8rem;
+      background: var(--glass);
+      border: 1px solid rgba(59,130,246,0.35);
+      backdrop-filter: blur(20px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bottom-cta::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 70%; height: 2px;
+      background: linear-gradient(90deg, transparent, #3b82f6, #60a5fa, transparent);
+    }
+
+    .cta-emoji { font-size: 2.5rem; margin-bottom: 0.8rem; }
+    .cta-title { font-size: 1.7rem; font-weight: 800; margin-bottom: 0.8rem; }
+    .cta-sub { font-size: 0.95rem; color: var(--fg2); line-height: 1.65; margin-bottom: 2rem; }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      justify-content: center;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.75rem 1.6rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn-primary {
+      background: linear-gradient(135deg, #1e40af, #2563eb);
+      color: #fff;
+    }
+
+    .cta-btn-primary:hover {
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(37,99,235,0.5);
+    }
+
+    .cta-btn-ghost {
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      color: var(--fg);
+    }
+
+    .cta-btn-ghost:hover {
+      border-color: #3b82f6;
+      background: rgba(59,130,246,0.1);
+    }
+
+    .cta-btn-green {
+      background: rgba(34,197,94,0.1);
+      border: 1.5px solid rgba(34,197,94,0.3);
+      color: #4ade80;
+    }
+
+    .cta-btn-blue {
+      background: rgba(59,130,246,0.12);
+      border: 1.5px solid rgba(59,130,246,0.35);
+      color: #60a5fa;
+    }
+
+    .cta-btn-green:hover, .cta-btn-blue:hover { transform: translateY(-2px); background: rgba(59,130,246,0.2); }
+
+    .pricing-footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      color: var(--fg2);
+      font-size: 0.82rem;
+      opacity: 0.6;
+    }
+
+    @media (max-width: 720px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+      .cta-buttons { flex-direction: column; align-items: stretch; }
+      .cta-btn { justify-content: center; }
+      .card-plan { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="glow-blob"></div>
+
+<!-- ── NAVBAR (same structure, blue logo) ── -->
+<nav class="navbar">
+  <a href="/" class="nav-back" aria-label="Back to portfolio">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Portfolio
+  </a>
+  <div class="nav-logo">GE</div>
+  <div style="width:130px"></div>
+</nav>
+
+<main>
+
+  <div class="page-hero">
+    <div class="page-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" color="#3b82f6"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Flexible Pricing • Zero Surprises
+    </div>
+    <h1 class="page-title">Invest in Your Digital Growth</h1>
+    <p class="page-subtitle">
+      Clear, project-based pricing for modern web apps, APIs, and full-stack systems. Choose what fits your vision.
+    </p>
+    <div class="info-banner">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      All plans include full source code, responsive design, clean architecture & 1 week post-launch support.
+    </div>
+  </div>
+
+  <section class="pricing-section" aria-label="Pricing plans">
+    <div class="pricing-grid">
+
+      <!-- PLAN 1: BASIC → $25–50 -->
+      <article class="pricing-card">
+        <div class="card-badges"><span class="badge badge-starter">📘 Essential</span></div>
+        <div class="card-plan">Basic</div>
+        <div class="card-price"><span class="price-currency">$</span><span class="price-range">25–50</span><span class="price-unit">/project</span></div>
+        <p class="card-desc">Landing pages, portfolio sites & micro-business websites.</p>
+        <div class="card-divider"></div>
+        <ul class="card-features">
+          <li class="feature-item included"><span class="check-icon yes">✓</span>Up to 5 pages</li>
+          <li class="feature-item included"><span class="check-icon yes">✓</span>Fully responsive design</li>
+          <li class="feature-item included"><span class="check-icon yes">✓</span>Contact / inquiry form</li>
+          <li class="feature-item excluded"><span class="check-icon no">✕</span>Database / CMS</li>
+          <li class="feature-item excluded"><span class="check-icon no">✕</span>User login system</li>
+        </ul>
+        <a href="mailto:gaberezzat.1001@gmail.com?subject=Basic Plan Inquiry" class="card-btn btn-ghost">Get Started →</a>
+      </article>
+
+      <!-- PLAN 2: STANDARD → $50–150 (second tier) -->
+      <article class="pricing-card">
+        <div class="card-badges"><span class="badge badge-standard">📈 Boost</span></div>
+    
+        <div class="card-plan">Standard</div>
+        <div class="card-price"><span class="price-currency">$</span><span class="price-range">50–150</span><span class="price-unit">/project</span></div>
+        <p class="card-desc">Dynamic business websites with content management & basic interactivity.</p>
+        <div class="card-divider"></div>
+        <ul class="card-features">
+          <li class="feature-item included"><span class="check-icon yes">✓</span>Everything in Basic</li>
+          <li class="feature-item included"><span class="check-icon yes">✓</span>Up to 10 pages</li>
+          <li class="feature-item included"><span class="check-icon yes">✓</span>Database integration (MySQL/PostgreSQL)</li>
+          <li class="feature-item included"><span class="check-icon yes">✓</span>Admin panel light</li>
+          <li class="feature-item excluded"><span class="check-icon no">✕</span>Advanced API endpoints</li>
+        </ul>
+        <a href="mailto:gaberezzat.1001@gmail.com?subject=Standard Plan Inquiry" class="card-btn btn-ghost">Get Started →</a>
+      </article>
+
+      <!-- PLAN 3: ADVANCED → $150–400 (third tier, previously balance style) POPULAR -->
+      <article class="pricing-card popular">
+        <div class="card-badges"><span class="badge badge-popular">🏆 Most Popular</span></div>
+      
+        <div class="card-plan">Advanced</div>
+        <div class="card-price"><span class="price-currency">$</span><span class="price-range">150–400</span><span class="price-unit">/project</span></div>
+        <p class="card-desc">Full-featured web apps, user authentication, REST APIs & dashboards.</p>
+        <div class="card-divider"></div>
+        <ul class="card-features">
+          <li class="feature-item included"><span class="check-icon yes">✓</span>Everything in Standard</li>
+          <li class="feature-item included"><span class="check-icon yes">✓</span>Unlimited pages / dynamic routes</li>
+          <li class="feature-item included"><span class="check-icon yes">✓</span>User authentication & roles</li>
+          <li class="feature-item included"><span class="check-icon yes">✓</span>RESTful API development</li>
+          <li class="feature-item included"><span class="check-icon yes">✓</span>Admin dashboard</li>
+          <li class="feature-item excluded"><span class="check-icon no">✕</span>Payment gateway integration</li>
+        </ul>
+        <a href="mailto:gaberezzat.1001@gmail.com?subject=Advanced Plan Inquiry" class="card-btn btn-primary">Start Advanced →</a>
+      </article>
+
+      <!-- PLAN 4: CUSTOM → tailored, enterprise -->
+      <article class="pricing-card">
+        <div class="card-badges"><span class="badge badge-custom">✨ Custom</span></div>
+        
+        <div class="card-plan">Tailor‑made</div>
+        <div class="card-price"><span class="price-currency">$</span><span class="custom-price">Custom</span><span class="price-unit">/project</span></div>
+        <p class="card-desc">Complex enterprise systems, payment gateways, real-time features, dedicated architecture.</p>
+        <div class="card-divider"></div>
+        <ul class="card-features">
+          <li class="feature-item included"><span class="check-icon yes">✓</span>Everything in Advanced + more</li>
+          <li class="feature-item included"><span class="check-icon yes">✓</span>Payment integration (Stripe/PayPal)</li>
+          <li class="feature-item included"><span class="check-icon yes">✓</span>WebSockets / real-time</li>
+          <li class="feature-item included"><span class="check-icon yes">✓</span>Microservices / advanced API</li>
+          <li class="feature-item included"><span class="check-icon yes">✓</span>Scalable cloud deployment</li>
+          <li class="feature-item included"><span class="check-icon yes">✓</span>Priority 24/7 support</li>
+        </ul>
+        <a href="mailto:gaberezzat.1001@gmail.com?subject=Custom Enterprise Project" class="card-btn btn-ghost">Let’s Talk →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ── BOTTOM CTA ── -->
+  <section class="bottom-cta" aria-label="Contact section">
+  
+    <h2 class="cta-title">Let’s build something remarkable</h2>
+    <p class="cta-sub">
+      Not sure about scope? I’ll help you define the perfect plan. Every project is unique — let’s collaborate.
+    </p>
+    <div class="cta-buttons">
+      <a href="mailto:gaberezzat.1001@gmail.com?subject=Project Inquiry" class="cta-btn cta-btn-primary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email Me
+      </a>
+      <a href="https://linkedin.com/in/gaberezzat11" target="_blank" class="cta-btn cta-btn-blue">
+        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://wa.me/201113749645" target="_blank" class="cta-btn cta-btn-green">
+        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        WhatsApp
+      </a>
+    
+    </div>
+  </section>
+</main>
+
+<footer class="pricing-footer">
+  © 2026 Gaber Ezzat · Precision code, modern design
+</footer>
+
+<script>
+  // Intersection Observer for smooth card reveal (already visible due to CSS, but ensures animation state)
+  const cards = document.querySelectorAll('.pricing-card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.style.animationPlayState = 'running';
+    });
+  }, { threshold: 0.1 });
+  cards.forEach(c => {
+    c.style.animationPlayState = 'paused';
+    observer.observe(c);
+  });
+</script>
+</body>
+</html>

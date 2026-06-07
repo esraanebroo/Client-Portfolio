@@ -1,0 +1,424 @@
+/* ============================================================
+   Projects.css — Professional project cards
+   Dark mode: BLUE THEME (matching pricing page)
+   Light mode: unchanged (Ocean inspired)
+   ============================================================ */
+
+/* ── Section ── */
+.projects-section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #030712 0%, #0a0f1a 100%);
+  padding: 6rem 0;
+}
+
+.projects-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Header ── */
+.projects-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.projects-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  padding: 0.4rem 1.2rem;
+  border-radius: 100px;
+  color: #60a5fa;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+}
+
+.projects-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  margin: 0 0 0.75rem;
+  background: linear-gradient(135deg, #ffffff, #93c5fd, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.projects-subtitle {
+  color: #94a3b8;
+  font-size: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ── Grid ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.75rem;
+  align-items: stretch;
+}
+
+/* ── Card ── */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.35s ease;
+  cursor: default;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 24px 50px -12px rgba(37, 99, 235, 0.25),
+              0 0 0 1px rgba(59, 130, 246, 0.15);
+}
+
+/* ── Image wrapper ── */
+.project-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  flex-shrink: 0;
+}
+
+/* Real image */
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.06) translateY(-3px);
+}
+
+/* Placeholder (no image) */
+.project-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(59, 130, 246, 0.3);
+  background: linear-gradient(135deg,
+    rgba(37, 99, 235, 0.05) 0%,
+    rgba(59, 130, 246, 0.08) 100%
+  );
+  transition: color 0.3s ease;
+}
+
+.project-card:hover .project-placeholder {
+  color: rgba(59, 130, 246, 0.6);
+}
+
+/* Period badge — top-left corner */
+.project-period-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(3, 7, 18, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #94a3b8;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 100px;
+  letter-spacing: 0.3px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── Content ── */
+.project-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.4rem 1.5rem 1.5rem;
+  flex: 1;
+}
+
+.project-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0;
+  line-height: 1.35;
+  transition: color 0.25s;
+}
+
+.project-card:hover .project-title {
+  color: #60a5fa;
+}
+
+.project-description {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+
+/* ── Tech tags ── */
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-tech-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  background: rgba(59, 130, 246, 0.1);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 100px;
+  letter-spacing: 0.2px;
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.project-tech-tag:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+  color: #93c5fd;
+}
+
+/* ── Action Buttons ── */
+.project-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 0.25rem;
+}
+
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.22s,
+              background 0.22s,
+              border-color 0.22s,
+              color 0.22s;
+  white-space: nowrap;
+}
+
+/* GitHub button */
+.project-btn--github {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.project-btn--github:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.4);
+}
+
+/* Live Demo button - BLUE GRADIENT */
+.project-btn--live {
+  background: linear-gradient(135deg, #1e40af, #2563eb);
+  border: 1px solid transparent;
+  color: #ffffff;
+}
+
+.project-btn--live:hover {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(37, 99, 235, 0.45);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .projects-section {
+    padding: 4rem 0;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-content {
+    padding: 1.2rem;
+  }
+
+  .project-title {
+    font-size: 1rem;
+  }
+
+  .projects-title {
+    font-size: 1.75rem;
+  }
+  
+  .section-container {
+    padding: 0 1rem;
+  }
+}
+
+/* ============================================================
+   LIGHT MODE — OCEAN INSPIRED (Prussian Blue) - UNCHANGED
+   ============================================================ */
+
+[data-theme='light'] .projects-section {
+  background: linear-gradient(180deg, #DCEEF2 0%, #EAF4F4 100%);
+  padding: 6rem 0;
+}
+
+[data-theme='light'] .projects-section::before {
+  background: radial-gradient(ellipse 70% 50% at 50% 0%,
+    rgba(0, 49, 83, 0.06) 0%, transparent 70%);
+}
+
+[data-theme='light'] .projects-badge {
+  background: rgba(0, 49, 83, 0.08);
+  border: 1px solid rgba(0, 49, 83, 0.22);
+  color: #003153;
+}
+
+[data-theme='light'] .projects-title {
+  background: linear-gradient(135deg, #003153, #1a5a7a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme='light'] .projects-subtitle {
+  color: #2c4a5e;
+}
+
+/* Card */
+[data-theme='light'] .project-card {
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 49, 83, 0.12);
+  box-shadow: 0 4px 20px -8px rgba(0, 49, 83, 0.08);
+}
+
+[data-theme='light'] .project-card:hover {
+  border-color: rgba(0, 49, 83, 0.32);
+  box-shadow: 0 24px 50px -12px rgba(0, 49, 83, 0.16),
+              0 0 0 1px rgba(0, 49, 83, 0.1);
+}
+
+/* Image wrapper - Light mode */
+[data-theme='light'] .project-image-wrapper {
+  background: linear-gradient(135deg, #DCEEF2, #CFE8F3);
+}
+
+/* Placeholder - Light mode */
+[data-theme='light'] .project-placeholder {
+  color: rgba(0, 49, 83, 0.3);
+  background: linear-gradient(135deg,
+    rgba(0, 49, 83, 0.04) 0%,
+    rgba(44, 122, 138, 0.06) 100%
+  );
+}
+
+[data-theme='light'] .project-card:hover .project-placeholder {
+  color: rgba(0, 49, 83, 0.6);
+}
+
+/* Period badge - Light mode */
+[data-theme='light'] .project-period-badge {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 49, 83, 0.14);
+  color: #003153;
+}
+
+/* Content - Light mode */
+[data-theme='light'] .project-title {
+  color: #003153;
+}
+
+[data-theme='light'] .project-card:hover .project-title {
+  color: #1a5a7a;
+}
+
+[data-theme='light'] .project-description {
+  color: #2c4a5e;
+}
+
+/* Tech tags - Light mode */
+[data-theme='light'] .project-tech-tag {
+  background: rgba(0, 49, 83, 0.07);
+  color: #003153;
+  border: 1px solid rgba(0, 49, 83, 0.18);
+}
+
+[data-theme='light'] .project-tech-tag:hover {
+  background: rgba(0, 49, 83, 0.15);
+  border-color: rgba(0, 49, 83, 0.35);
+  color: #003153;
+}
+
+/* Buttons - Light mode */
+[data-theme='light'] .project-btn--github {
+  background: rgba(0, 49, 83, 0.06);
+  border: 1px solid rgba(0, 49, 83, 0.2);
+  color: #003153;
+}
+
+[data-theme='light'] .project-btn--github:hover {
+  background: rgba(0, 49, 83, 0.13);
+  border-color: #003153;
+  color: #003153;
+  box-shadow: 0 6px 16px -4px rgba(0, 49, 83, 0.18);
+}
+
+[data-theme='light'] .project-btn--live {
+  background: linear-gradient(135deg, #003153, #1a5a7a);
+}
+
+[data-theme='light'] .project-btn--live:hover {
+  background: linear-gradient(135deg, #1a5a7a, #2c7a8a);
+  box-shadow: 0 8px 20px -4px rgba(0, 49, 83, 0.35);
+}

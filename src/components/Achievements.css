@@ -1,0 +1,344 @@
+/* Achievements.css */
+.achievements-section {
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, #0A0A0F 0%, #0F1117 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Glow Effect */
+.achievements-section::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: -10%;
+  width: 50%;
+  height: 50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header Styles */
+.achievements-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.achievements-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(59, 130, 246, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  color: #60A5FA;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.achievements-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #FFFFFF, #94A3B8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+}
+
+.achievements-subtitle {
+  color: #94A3B8;
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Single Coming Soon Card */
+.coming-soon-card {
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 28px;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.coming-soon-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.08), transparent);
+  transition: left 0.6s ease;
+}
+
+.coming-soon-card:hover::before {
+  left: 100%;
+}
+
+.coming-soon-card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 25px 45px -12px rgba(59, 130, 246, 0.2);
+}
+
+.coming-soon-card-inner {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.coming-soon-icon {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: #60A5FA;
+  transition: all 0.3s ease;
+}
+
+.coming-soon-card:hover .coming-soon-icon {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(139, 92, 246, 0.25));
+}
+
+.coming-soon-card-inner h3 {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #FFFFFF, #60A5FA);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.coming-soon-card-inner p {
+  color: #94A3B8;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.coming-soon-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(59, 130, 246, 0.15);
+  padding: 0.5rem 1.2rem;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  color: #60A5FA;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+}
+
+.coming-soon-card:hover .coming-soon-tag {
+  background: rgba(59, 130, 246, 0.25);
+  gap: 10px;
+}
+
+/* Stats Section */
+.achievements-stats {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  padding: 2rem;
+  background: rgba(15, 23, 42, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.achievement-stat {
+  text-align: center;
+}
+
+.achievement-stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #60A5FA, #3B82F6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.achievement-stat-label {
+  color: #64748B;
+  font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .achievements-section {
+    padding: 5rem 1.5rem;
+  }
+  
+  .achievements-title {
+    font-size: 2rem;
+  }
+  
+  .coming-soon-card-inner h3 {
+    font-size: 1.5rem;
+  }
+  
+  .achievements-stats {
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 640px) {
+  .achievements-section {
+    padding: 4rem 1rem;
+  }
+  
+  .coming-soon-card-inner {
+    padding: 2rem 1.5rem;
+  }
+  
+  .coming-soon-icon {
+    width: 75px;
+    height: 75px;
+  }
+  
+  .coming-soon-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .coming-soon-card-inner h3 {
+    font-size: 1.3rem;
+  }
+  
+  .coming-soon-card-inner p {
+    font-size: 0.85rem;
+  }
+  
+  .achievements-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .achievement-stat-number {
+    font-size: 2rem;
+  }
+  
+  .achievements-title {
+    font-size: 1.75rem;
+  }
+}
+
+/* ============================================
+   LIGHT MODE — OCEAN INSPIRED (Prussian Blue)
+   ============================================ */
+
+[data-theme='light'] .achievements-section {
+  background: linear-gradient(180deg, #EAF4F4 0%, #DCEEF2 50%, #CFE8F3 100%);
+}
+
+[data-theme='light'] .achievements-section::before {
+  background: radial-gradient(circle, rgba(0, 49, 83, 0.06) 0%, transparent 70%);
+}
+
+[data-theme='light'] .achievements-badge {
+  background: rgba(0, 49, 83, 0.08);
+  color: #003153;
+  border: 1px solid rgba(0, 49, 83, 0.22);
+}
+
+[data-theme='light'] .achievements-title {
+  background: linear-gradient(135deg, #003153, #1a5a7a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+[data-theme='light'] .achievements-subtitle {
+  color: #2c4a5e;
+}
+
+/* Coming Soon Card */
+[data-theme='light'] .coming-soon-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 49, 83, 0.12);
+  box-shadow: 0 6px 24px -8px rgba(0, 49, 83, 0.08);
+}
+
+[data-theme='light'] .coming-soon-card::before {
+  background: linear-gradient(90deg, transparent, rgba(0, 49, 83, 0.06), transparent);
+}
+
+[data-theme='light'] .coming-soon-card:hover {
+  border-color: rgba(0, 49, 83, 0.3);
+  box-shadow: 0 25px 45px -12px rgba(0, 49, 83, 0.14);
+}
+
+[data-theme='light'] .coming-soon-icon {
+  background: linear-gradient(135deg, rgba(0, 49, 83, 0.1), rgba(44, 122, 138, 0.1));
+  color: #003153;
+}
+
+[data-theme='light'] .coming-soon-card:hover .coming-soon-icon {
+  background: linear-gradient(135deg, rgba(0, 49, 83, 0.18), rgba(44, 122, 138, 0.18));
+}
+
+[data-theme='light'] .coming-soon-card-inner h3 {
+  background: linear-gradient(135deg, #003153, #1a5a7a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+[data-theme='light'] .coming-soon-card-inner p {
+  color: #2c4a5e;
+}
+
+[data-theme='light'] .coming-soon-tag {
+  background: rgba(0, 49, 83, 0.08);
+  color: #003153;
+  border: 1px solid rgba(0, 49, 83, 0.22);
+}
+
+[data-theme='light'] .coming-soon-card:hover .coming-soon-tag {
+  background: rgba(0, 49, 83, 0.15);
+}
+
+/* Stats Section */
+[data-theme='light'] .achievements-stats {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 49, 83, 0.1);
+}
+
+[data-theme='light'] .achievement-stat-number {
+  background: linear-gradient(135deg, #003153, #1a5a7a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+[data-theme='light'] .achievement-stat-label {
+  color: #4a6f8a;
+}

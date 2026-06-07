@@ -1,0 +1,270 @@
+/* ============================================================
+   Services Section
+   - نفس variables الـ Navbar والـ Footer
+   - Dark mode (default) + Light mode via [data-theme="light"]
+   - RTL support تلقائي
+   ============================================================ */
+
+/* ── Variables ── */
+:root {
+  --svc-bg:            #0A0A0F;
+  --svc-title:         #E2E8F0;
+  --svc-divider:       #3B82F6;
+  --svc-card-bg:       rgba(15, 23, 42, 0.8);
+  --svc-card-border:   rgba(59, 130, 246, 0.15);
+  --svc-card-hover-bg: rgba(20, 30, 55, 0.9);
+  --svc-card-hover-bd: rgba(59, 130, 246, 0.45);
+  --svc-card-glow:     rgba(59, 130, 246, 0.12);
+  --svc-card-line:     rgba(59, 130, 246, 0.6);
+  --svc-icon-bg:       rgba(59, 130, 246, 0.1);
+  --svc-icon-border:   rgba(59, 130, 246, 0.25);
+  --svc-icon-color:    #60A5FA;
+  --svc-icon-glow:     rgba(59, 130, 246, 0.15);
+  --svc-icon-hover-bg: rgba(59, 130, 246, 0.2);
+  --svc-icon-hover-gl: rgba(59, 130, 246, 0.35);
+  --svc-name:          #E2E8F0;
+  --svc-desc:          #94A3B8;
+  --svc-tag-bg:        rgba(59, 130, 246, 0.08);
+  --svc-tag-border:    rgba(59, 130, 246, 0.22);
+  --svc-tag-color:     #60A5FA;
+  --svc-cta-label:     #94A3B8;
+  --svc-btn-from:      #3B82F6;
+  --svc-btn-to:        #2563EB;
+  --svc-btn-glow:      rgba(59, 130, 246, 0.4);
+  --svc-btn-hover-gl:  rgba(59, 130, 246, 0.6);
+  --svc-accent:        #3B82F6;
+  --svc-accent-2:      #8B5CF6;
+}
+
+[data-theme='light'] {
+  --svc-bg:            linear-gradient(135deg, #EAF4F4 0%, #DCEEF2 60%, #CFE8F3 100%);
+  --svc-title:         #003153;
+  --svc-divider:       #003153;
+  --svc-card-bg:       rgba(255, 255, 255, 0.72);
+  --svc-card-border:   rgba(0, 49, 83, 0.12);
+  --svc-card-hover-bg: rgba(255, 255, 255, 0.95);
+  --svc-card-hover-bd: rgba(0, 49, 83, 0.35);
+  --svc-card-glow:     rgba(0, 49, 83, 0.07);
+  --svc-card-line:     rgba(0, 49, 83, 0.45);
+  --svc-icon-bg:       rgba(0, 49, 83, 0.07);
+  --svc-icon-border:   rgba(0, 49, 83, 0.18);
+  --svc-icon-color:    #003153;
+  --svc-icon-glow:     rgba(0, 49, 83, 0.08);
+  --svc-icon-hover-bg: rgba(0, 49, 83, 0.14);
+  --svc-icon-hover-gl: rgba(0, 49, 83, 0.22);
+  --svc-name:          #003153;
+  --svc-desc:          #2c4a5e;
+  --svc-tag-bg:        rgba(0, 49, 83, 0.06);
+  --svc-tag-border:    rgba(0, 49, 83, 0.18);
+  --svc-tag-color:     #003153;
+  --svc-cta-label:     #2c4a5e;
+  --svc-btn-from:      #003153;
+  --svc-btn-to:        #1a5a7a;
+  --svc-btn-glow:      rgba(0, 49, 83, 0.28);
+  --svc-btn-hover-gl:  rgba(0, 49, 83, 0.45);
+  --svc-accent:        #003153;
+  --svc-accent-2:      #2c7a8a;
+}
+
+/* ── Section ── */
+.services-section {
+  padding: 8rem 1rem;
+  width: 100%;
+  background: var(--svc-bg);
+  transition: background 0.4s ease;
+}
+
+/* ── Container ── */
+.services-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.services-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.services-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--svc-accent), var(--svc-accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.4s ease;
+}
+
+.services-divider {
+  width: 4rem;
+  height: 3px;
+  background: linear-gradient(90deg, var(--svc-accent), var(--svc-accent-2));
+  margin: 0 auto;
+  border-radius: 9999px;
+  transition: background 0.4s ease;
+}
+
+/* ── Grid ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+  justify-content: center;
+}
+
+/* ── Card ── */
+.service-card {
+  background: var(--svc-card-bg);
+  border: 1px solid var(--svc-card-border);
+  border-radius: 1.25rem;
+  padding: 2.2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+[data-theme='light'] .service-card {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* top shimmer line */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--svc-card-line), transparent);
+  border-radius: 9999px;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.service-card:hover {
+  border-color: var(--svc-card-hover-bd);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 32px var(--svc-card-glow);
+  background: var(--svc-card-hover-bg);
+}
+
+[data-theme='light'] .service-card:hover {
+  box-shadow: 0 10px 32px rgba(37, 99, 235, 0.1);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+/* ── Icon ── */
+.service-icon-box {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 0.85rem;
+  background: var(--svc-icon-bg);
+  border: 1px solid var(--svc-icon-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--svc-icon-color);
+  transition: all 0.35s ease;
+  box-shadow: 0 0 14px var(--svc-icon-glow);
+}
+
+.service-card:hover .service-icon-box {
+  background: var(--svc-icon-hover-bg);
+  box-shadow: 0 0 22px var(--svc-icon-hover-gl);
+}
+
+/* ── Name ── */
+.service-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--svc-name);
+  transition: color 0.4s ease;
+}
+
+/* ── Description ── */
+.service-desc {
+  font-size: 0.88rem;
+  color: var(--svc-desc);
+  line-height: 1.7;
+  transition: color 0.4s ease;
+}
+
+/* ── Tags ── */
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.4rem;
+}
+
+.service-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--svc-tag-bg);
+  border: 1px solid var(--svc-tag-border);
+  color: var(--svc-tag-color);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ── CTA ── */
+.services-cta {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.services-cta-label {
+  font-size: 1rem;
+  color: var(--svc-cta-label);
+  transition: color 0.4s ease;
+}
+
+.services-pricing-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.9rem 2.4rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, var(--svc-btn-from), var(--svc-btn-to));
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px var(--svc-btn-glow);
+  letter-spacing: 0.02em;
+}
+
+.services-pricing-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 32px var(--svc-btn-hover-gl);
+}
+
+.services-pricing-gem {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .services-section   { padding: 5rem 1rem; }
+  .services-title     { font-size: 2rem; }
+  .service-card       { padding: 1.75rem 1.4rem; }
+}

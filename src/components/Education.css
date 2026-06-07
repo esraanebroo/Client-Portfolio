@@ -1,0 +1,737 @@
+/* ========== EDUCATION SECTION - PREMIUM BLUE THEME WITH GRADIENT ANIMATION ========== */
+
+.education-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(180deg, #030712 0%, #0a0f1a 100%);
+  padding: 6rem 0;
+}
+
+/* Container */
+.section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* ========== HEADER STYLES ========== */
+.education-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.projects-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  padding: 0.4rem 1.2rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #60a5fa;
+  backdrop-filter: blur(4px);
+  margin-bottom: 1.5rem;
+}
+
+.projects-badge svg {
+  stroke: #60a5fa;
+}
+
+.education-title {
+  font-size: clamp(2.4rem, 6vw, 3.5rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, #ffffff, #93c5fd, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+/* ========== DEGREE SECTION (PREMIUM CARD WITH ANIMATED BORDER) ========== */
+.education-degree {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
+  padding: 1.75rem 2rem;
+  margin-bottom: 3rem;
+  display: flex;
+  gap: 1.75rem;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* PROFESSIONAL ANIMATED GRADIENT BORDER - Blue gradient that moves */
+.education-degree::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #1e3a8a,
+    #2563eb,
+    #3b82f6,
+    #60a5fa,
+    #3b82f6,
+    #2563eb,
+    #1e3a8a,
+    transparent
+  );
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.education-degree:hover::before {
+  opacity: 1;
+  animation: gradientShift 2.5s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+/* FULL BORDER GRADIENT ANIMATION ON HOVER (subtle glow) */
+.education-degree::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  padding: 1px;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    #1e3a8a 20%,
+    #3b82f6 45%,
+    #60a5fa 55%,
+    #3b82f6 70%,
+    #1e3a8a 85%,
+    transparent 100%
+  );
+  background-size: 200% 200%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.education-degree:hover::after {
+  opacity: 0.6;
+  animation: borderRotate 3s ease-in-out infinite;
+}
+
+@keyframes borderRotate {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+.education-degree:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(37, 99, 235, 0.3);
+}
+
+/* Logo container - FILLS THE FRAME COMPLETELY */
+.education-degree-logo {
+  width: 100px;
+  height: 100px;
+  min-width: 100px;
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.education-degree-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.education-degree-logo:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 0 24px rgba(59, 130, 246, 0.35);
+}
+
+.education-degree-logo:hover img {
+  transform: scale(1.06);
+  filter: brightness(1.05);
+}
+
+.education-degree-content {
+  flex: 1;
+}
+
+.education-degree-content h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #f1f5f9, #cbd5e6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.75rem;
+}
+
+.education-degree-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.meta-item svg {
+  stroke: #60a5fa;
+  width: 14px;
+  height: 14px;
+}
+
+.education-degree-grade {
+  display: inline-block;
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  padding: 0.3rem 0.9rem;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #60a5fa;
+  margin-bottom: 0.75rem;
+}
+
+.education-degree-project {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+  border-left: 2px solid #3b82f6;
+}
+
+/* Certificate Link */
+.education-cert-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #60a5fa;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.4rem 0;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.education-cert-link:hover {
+  color: #3b82f6;
+  gap: 0.75rem;
+}
+
+/* ========== CERTIFICATIONS SECTION ========== */
+.education-certifications {
+  margin-top: 1rem;
+}
+
+.education-cert-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(59, 130, 246, 0.08);
+  padding: 0.5rem 1.2rem;
+  border-radius: 100px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.education-cert-title svg {
+  stroke: #60a5fa;
+}
+
+/* GRID LAYOUT - PERFECT ALIGNMENT */
+.education-cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 1.75rem;
+}
+
+/* Individual Certification Card */
+.education-cert-card {
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1.25rem;
+  transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ANIMATED GRADIENT BORDER FOR CERTIFICATION CARDS */
+.education-cert-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #1e3a8a,
+    #3b82f6,
+    #60a5fa,
+    #3b82f6,
+    #1e3a8a,
+    transparent
+  );
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.education-cert-card:hover::before {
+  opacity: 1;
+  animation: gradientShift 2.5s ease-in-out infinite;
+}
+
+/* Full border glow on hover */
+.education-cert-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1.25rem;
+  padding: 1px;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    #1e3a8a 25%,
+    #3b82f6 50%,
+    #60a5fa 75%,
+    transparent 100%
+  );
+  background-size: 200% 200%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.education-cert-card:hover::after {
+  opacity: 0.5;
+  animation: borderRotate 3s ease-in-out infinite;
+}
+
+.education-cert-card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 35px -12px rgba(37, 99, 235, 0.25);
+  background: rgba(15, 23, 42, 0.7);
+}
+
+/* Logo container - FILLS THE FRAME COMPLETELY with object-fit cover */
+.education-cert-logo {
+  width: 75px;
+  height: 75px;
+  min-width: 75px;
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.education-cert-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.education-cert-logo:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.education-cert-logo:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.05);
+}
+
+.education-cert-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.education-cert-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.education-cert-header h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  line-height: 1.3;
+}
+
+.education-cert-period {
+  background: rgba(59, 130, 246, 0.12);
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #60a5fa;
+  white-space: nowrap;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.education-cert-provider {
+  color: #60a5fa;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.education-cert-desc {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  margin-bottom: 1rem;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 900px) {
+  .education-degree {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.75rem;
+  }
+
+  .education-degree-logo {
+    margin: 0 auto;
+  }
+
+  .education-degree-meta {
+    justify-content: center;
+  }
+
+  .education-degree-project {
+    text-align: center;
+    border-left: none;
+    border-top: 1px solid rgba(59, 130, 246, 0.3);
+    padding-top: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .education-cert-link {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 850px) {
+  .education-cert-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .education-section {
+    padding: 4rem 0;
+  }
+
+  .section-container {
+    padding: 0 1rem;
+  }
+
+  .education-degree-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .education-cert-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .education-cert-logo {
+    margin: 0 auto;
+  }
+
+  .education-cert-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .education-cert-period {
+    white-space: normal;
+  }
+
+  .education-cert-provider {
+    justify-content: center;
+  }
+
+  .education-degree-meta {
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .education-degree-logo {
+    width: 85px;
+    height: 85px;
+    min-width: 85px;
+  }
+
+  .education-cert-logo {
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+  }
+
+  .education-title {
+    font-size: 2rem;
+  }
+}
+
+/* ========== SCROLL REVEAL ========== */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.reveal-item.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== UTILITIES ========== */
+::selection {
+  background: rgba(59, 130, 246, 0.3);
+  color: white;
+}
+
+/* ============================================
+   LIGHT MODE — OCEAN INSPIRED (Prussian Blue)
+   ============================================ */
+
+[data-theme='light'] .education-section {
+  background: linear-gradient(180deg, #EAF4F4 0%, #DCEEF2 50%, #CFE8F3 100%);
+}
+
+[data-theme='light'] .projects-badge {
+  background: rgba(0, 49, 83, 0.08);
+  border: 1px solid rgba(0, 49, 83, 0.25);
+  color: #003153;
+}
+
+[data-theme='light'] .projects-badge svg {
+  stroke: #003153;
+}
+
+[data-theme='light'] .education-title {
+  background: linear-gradient(135deg, #003153, #1a5a7a, #2c7a8a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Degree Card */
+[data-theme='light'] .education-degree {
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 49, 83, 0.14);
+  box-shadow: 0 6px 24px -8px rgba(0, 49, 83, 0.1);
+}
+
+[data-theme='light'] .education-degree::before {
+  background: linear-gradient(
+    90deg,
+    transparent, #003153, #1a5a7a, #2c7a8a, #1a5a7a, #003153, transparent
+  );
+}
+
+[data-theme='light'] .education-degree::after {
+  background: linear-gradient(
+    115deg,
+    transparent 0%, #003153 20%, #1a5a7a 45%, #2c7a8a 55%, #1a5a7a 70%, #003153 85%, transparent 100%
+  );
+}
+
+[data-theme='light'] .education-degree:hover {
+  border-color: rgba(0, 49, 83, 0.35);
+  box-shadow: 0 20px 40px -12px rgba(0, 49, 83, 0.18);
+}
+
+[data-theme='light'] .education-degree-logo {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 49, 83, 0.2);
+}
+
+[data-theme='light'] .education-degree-logo:hover {
+  border-color: #003153;
+  box-shadow: 0 0 24px rgba(0, 49, 83, 0.2);
+}
+
+[data-theme='light'] .education-degree-content h3 {
+  background: linear-gradient(135deg, #003153, #1a5a7a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme='light'] .meta-item {
+  color: #4a6f8a;
+}
+
+[data-theme='light'] .meta-item svg {
+  stroke: #003153;
+}
+
+[data-theme='light'] .education-degree-grade {
+  background: rgba(0, 49, 83, 0.08);
+  border: 1px solid rgba(0, 49, 83, 0.22);
+  color: #003153;
+}
+
+[data-theme='light'] .education-degree-project {
+  color: #2c4a5e;
+  border-left: 2px solid #003153;
+}
+
+[data-theme='light'] .education-cert-link {
+  color: #003153;
+}
+
+[data-theme='light'] .education-cert-link:hover {
+  color: #1a5a7a;
+}
+
+/* Certifications */
+[data-theme='light'] .education-cert-title {
+  background: rgba(0, 49, 83, 0.07);
+  border: 1px solid rgba(0, 49, 83, 0.18);
+  color: #003153;
+}
+
+[data-theme='light'] .education-cert-title svg {
+  stroke: #003153;
+}
+
+[data-theme='light'] .education-cert-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 49, 83, 0.12);
+  box-shadow: 0 4px 16px -8px rgba(0, 49, 83, 0.08);
+}
+
+[data-theme='light'] .education-cert-card::before {
+  background: linear-gradient(
+    90deg,
+    transparent, #003153, #1a5a7a, #2c7a8a, #1a5a7a, #003153, transparent
+  );
+}
+
+[data-theme='light'] .education-cert-card::after {
+  background: linear-gradient(
+    115deg,
+    transparent 0%, #003153 25%, #1a5a7a 50%, #2c7a8a 75%, transparent 100%
+  );
+}
+
+[data-theme='light'] .education-cert-card:hover {
+  border-color: rgba(0, 49, 83, 0.32);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 20px 35px -12px rgba(0, 49, 83, 0.15);
+}
+
+[data-theme='light'] .education-cert-logo {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 49, 83, 0.18);
+}
+
+[data-theme='light'] .education-cert-logo:hover {
+  border-color: #003153;
+  box-shadow: 0 0 20px rgba(0, 49, 83, 0.18);
+}
+
+[data-theme='light'] .education-cert-header h4 {
+  color: #003153;
+}
+
+[data-theme='light'] .education-cert-period {
+  background: rgba(0, 49, 83, 0.08);
+  border: 1px solid rgba(0, 49, 83, 0.18);
+  color: #003153;
+}
+
+[data-theme='light'] .education-cert-provider {
+  color: #1a5a7a;
+}
+
+[data-theme='light'] .education-cert-desc {
+  color: #2c4a5e;
+}
