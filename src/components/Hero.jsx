@@ -132,7 +132,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.5, ease: 'easeOut' }}
             className="hero-buttons"
           >
-            <a href="Gaber_Ezzat_Resume.html" className="hero-btn hero-btn-primary" target="_blank" >
+            <a href="https://drive.google.com/file/d/1Z3ipmm4FaOsBAbu83B9ENsLW9QMZefBQ/view?usp=sharing" className="hero-btn hero-btn-primary" target="_blank" >
               <span>{language === 'ar' ? 'تحميل السيرة الذاتية' : 'Download CV'}</span>
               <Download size={18} />
             </a>

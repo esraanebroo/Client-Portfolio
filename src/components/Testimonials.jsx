@@ -10,13 +10,14 @@ export default function Testimonials() {
   const { theme } = useTheme();
 
   const testimonial = {
-    name: "Menna Omar",
-    roleEn: "Software Engineer",
+    name: "Dr Magdy Nasser",
+    roleEn: "Doctor",
     roleAr: "مهندسة برمجيات",
     textEn: "Gaber is an exceptional Full Stack Developer. His technical skills in ASP.NET Core and React are outstanding, and he delivers high-quality work with great attention to detail. I highly recommend working with him!",
     textAr: "جابر مطور Full Stack استثنائي. مهاراته التقنية في ASP.NET Core و React مذهلة، ويقدم عملاً عالي الجودة مع اهتمام كبير بالتفاصيل. أوصي بشدة بالعمل معه!",
     rating: 5,
-    linkedin: "https://www.linkedin.com/in/mennaomar/"
+    linkedin:"https://www.linkedin.com/in/gaberezzat11/"
+    
   };
 
   return (
